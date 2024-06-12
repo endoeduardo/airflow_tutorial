@@ -1,16 +1,16 @@
-# Tutorial Airflow
+# Airflow Tutorial
 
-Repositório com a finalidade de aprender a utilizar o Apache Airflow
+Repository for learning how to use Apache Airflow
 
-## Preparando o ambiente
+## Setting up the environment
 
-Após clonar o repositório digite os seguintes comandos no terminal
+After cloning the repository, enter the following commands in the terminal:
 
 ```powershell
 docker compose up airflow-init
 ```
 
-Isso instalará o Airflow, para rodar basta criar o seguinte comando
+This will install Airflow. To run it, simply use the following command:
 
 ```powershell
 docker compose up

@@ -1,1 +1,4 @@
 /venv
+logs/
+*.csv
+*/__pycache__
