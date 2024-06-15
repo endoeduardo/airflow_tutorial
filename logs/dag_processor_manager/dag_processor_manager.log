@@ -11315,3 +11315,113 @@ File Path                                          PID    Runtime      # DAGs   
 /opt/airflow/dags/download_stock_data.py                                    1           0  0.47s           2024-06-15T21:04:18
 /opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.43s           2024-06-15T21:04:24
 ================================================================================
+[2024-06-15T21:05:04.577+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.49s           2024-06-15T21:04:49
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.46s           2024-06-15T21:04:54
+================================================================================
+[2024-06-15T21:05:35.165+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.46s           2024-06-15T21:05:20
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.43s           2024-06-15T21:05:25
+================================================================================
+[2024-06-15T21:06:05.820+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.53s           2024-06-15T21:05:50
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.44s           2024-06-15T21:05:56
+================================================================================
+[2024-06-15T21:06:36.445+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.50s           2024-06-15T21:06:21
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.46s           2024-06-15T21:06:26
+================================================================================
+[2024-06-15T21:06:42.470+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2024-06-15T21:06:42.504+0000] {manager.py:740} INFO - There are 2 files in /opt/airflow/dags
+[2024-06-15T21:07:07.154+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.53s           2024-06-15T21:06:52
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.45s           2024-06-15T21:06:57
+================================================================================
+[2024-06-15T21:07:37.303+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.50s           2024-06-15T21:07:22
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.43s           2024-06-15T21:07:27
+================================================================================
+[2024-06-15T21:08:07.858+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.48s           2024-06-15T21:07:53
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.43s           2024-06-15T21:07:58
+================================================================================
+[2024-06-15T21:08:37.867+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.48s           2024-06-15T21:08:23
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.46s           2024-06-15T21:08:28
+================================================================================
+[2024-06-15T21:09:07.995+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.50s           2024-06-15T21:08:54
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.46s           2024-06-15T21:08:59
+================================================================================
+[2024-06-15T21:09:38.049+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.48s           2024-06-15T21:09:25
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.47s           2024-06-15T21:09:30
+================================================================================
+[2024-06-15T21:10:08.169+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.47s           2024-06-15T21:09:55
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.42s           2024-06-15T21:10:00
+================================================================================
+[2024-06-15T21:10:38.713+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                          PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/download_stock_data.py                                    1           0  0.47s           2024-06-15T21:10:26
+/opt/airflow/dags/src/finance_extraction_tools.py                           0           0  0.43s           2024-06-15T21:10:31
+================================================================================
