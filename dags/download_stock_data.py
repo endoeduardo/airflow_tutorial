@@ -6,7 +6,8 @@ from airflow.operators.bash import BashOperator
 import pendulum
 
 from src.finance_extraction_tools import (
-    list_files, treat_stock_data, get_stock_history
+    list_files, treat_stock_data, get_stock_history,
+    create_table, load_data
 )
 
 TICKERS = [
@@ -31,7 +32,17 @@ treatment_task = PythonOperator(
 
 remove_raw_folder_task = BashOperator(
     task_id='remove_raw_data_folder_task',
-    bash_command='rm -rf /data/stock'
+    bash_command='rm -rf /opt/airflow/data'
+)
+
+create_table_task = PythonOperator(
+    task_id='create_storage_table',
+    python_callable=create_table
+)
+
+load_data_into_postgres = PythonOperator(
+    task_id='load_data_into_postgres',
+    python_callable=load_data
 )
 
 @dag(
@@ -46,7 +57,8 @@ def get_stocks_dag():
     [
         # This part can be switched by a step that dumps into a bucket on a cloud service
         get_stock_history.override(task_id=ticker)(ticker) for ticker in TICKERS
-    ] >> list_files_task >> treatment_task >> remove_raw_folder_task
+    ] >> list_files_task >> treatment_task >> remove_raw_folder_task >> \
+    create_table_task >> load_data_into_postgres
     # pylint: enable=W0106:expression-not-assigned
 
 dag = get_stocks_dag() # pylint: disable=C0103
