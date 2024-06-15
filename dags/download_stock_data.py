@@ -1,11 +1,13 @@
 """Dag used for extract stock data"""
-from pathlib import Path
 
-from airflow.decorators import task, dag
-from airflow.macros import ds_add
+from airflow.decorators import dag
+from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
 import pendulum
 
-import yfinance as y
+from src.finance_extraction_tools import (
+    list_files, treat_stock_data, get_stock_history
+)
 
 TICKERS = [
     "AAPL",
@@ -14,26 +16,23 @@ TICKERS = [
     "TSLA"
 ]
 
-@task()
-def get_stock_history(stock_ticker: str, ds=None, ds_nodash=None) -> None:
-    """Main Function"""
-    file_path = f'dags/stock/{stock_ticker}/{ds_nodash}.csv'
-    Path(file_path).parent.mkdir(parents=True, exist_ok=True)
+list_files_task = PythonOperator(
+    task_id='list_files_task',
+    python_callable=lambda tickers: [list_files('data/stock/' + ticker + '/') for ticker in tickers],
+    op_args=[TICKERS]
+)
 
-    stock_data = y.Ticker(ticker=stock_ticker)
-    hist = stock_data.history(
-        period='1d',
-        interval='1h',
-        start=ds_add(ds, -1),
-        end=ds,
-        prepost=True
-    )
+treatment_task = PythonOperator(
+    task_id='treatment_task',
+    python_callable=treat_stock_data,
+    op_kwargs={'tickers': TICKERS},
+    provide_context=True
+)
 
-    hist.to_csv(
-        file_path,
-        sep=',',
-        index=False
-    )
+remove_raw_folder_task = BashOperator(
+    task_id='remove_raw_data_folder_task',
+    bash_command='rm -rf /data/stock'
+)
 
 @dag(
     schedule = "0 0 * * 2-6",
@@ -42,8 +41,12 @@ def get_stock_history(stock_ticker: str, ds=None, ds_nodash=None) -> None:
 )
 def get_stocks_dag():
     """Main dag"""
-    for ticker in TICKERS:
-        get_stock_history.override(task_id=ticker)(ticker)
 
+    # pylint: disable=W0106:expression-not-assigned
+    [
+        # This part can be switched by a step that dumps into a bucket on a cloud service
+        get_stock_history.override(task_id=ticker)(ticker) for ticker in TICKERS
+    ] >> list_files_task >> treatment_task >> remove_raw_folder_task
+    # pylint: enable=W0106:expression-not-assigned
 
-dag = get_stocks_dag()
+dag = get_stocks_dag() # pylint: disable=C0103

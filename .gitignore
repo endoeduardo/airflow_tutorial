@@ -1,4 +1,4 @@
 /venv
-logs/
+/logs
 *.csv
-*/__pycache__
+*__pycache__/
