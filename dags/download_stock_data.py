@@ -45,6 +45,11 @@ load_data_into_postgres = PythonOperator(
     python_callable=load_data
 )
 
+deleting_tmpf = BashOperator(
+    task_id='removing_tmpf_folder',
+    bash_command='rm -rf /dags/tmpf'
+)
+
 @dag(
     schedule = "0 0 * * 2-6",
     start_date = pendulum.datetime(2024, 6, 1, tz="UTC"),

@@ -99,7 +99,17 @@ def load_data() -> None:
     )
     conn = pg_hook.get_conn()
     cursor = conn.cursor()
+
+    # Queries the last row timestamp value
+    cursor.execute("SELECT max(datetime) FROM airflow_database.stock_data;")
+    last_timestamp = cursor.fetchone()[0]
+
+    print(last_timestamp)
+    
+    # Make sure that only new data will be uploaded to the db
     data = pd.read_csv('dags/tmpf/stocks.csv')
+    if last_timestamp:
+        data = data.query(f'Datetime > "{last_timestamp}"')
 
     for _, row in data.iterrows():
         values = (
