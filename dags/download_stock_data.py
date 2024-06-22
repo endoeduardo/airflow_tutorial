@@ -63,7 +63,7 @@ def get_stocks_dag():
         # This part can be switched by a step that dumps into a bucket on a cloud service
         get_stock_history.override(task_id=ticker)(ticker) for ticker in TICKERS
     ] >> list_files_task >> treatment_task >> remove_raw_folder_task >> \
-    create_table_task >> load_data_into_postgres
+    create_table_task >> load_data_into_postgres >> deleting_tmpf
     # pylint: enable=W0106:expression-not-assigned
 
 dag = get_stocks_dag() # pylint: disable=C0103
